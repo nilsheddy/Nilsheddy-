@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MR SHEDDY | Technology & AI</title>
+
+<meta name="description"
+content="Discover AI tools, technology articles and coding tutorials with MR SHEDDY.">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --bg: #080b10;
+  --card: #111720;
+  --cyan: #00e5ff;
+  --text: #f4f7fa;
+  --muted: #a5b0bd;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* NAVIGATION */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(8, 11, 16, 0.96);
+  border-bottom: 1px solid #202936;
+}
+
+.navbar {
+  max-width: 1150px;
+  margin: auto;
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.logo span {
+  color: var(--cyan);
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: var(--cyan);
+}
+
+.menu-btn {
+  display: none;
+  background: transparent;
+  border: 1px solid #34404e;
+  color: white;
+  padding: 7px 12px;
+  border-radius: 6px;
+}
+
+/* HERO */
+
+.hero {
+  max-width: 1150px;
+  margin: auto;
+  padding: 75px 20px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 35px;
+  align-items: center;
+}
+
+.badge {
+  display: inline-block;
+  border: 1px solid #075766;
+  background: #0c2028;
+  color: var(--cyan);
+  padding: 7px 12px;
+  border-radius: 30px;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 6vw, 62px);
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.hero h1 span {
+  color: var(--cyan);
+}
+
+.hero p {
+  color: var(--muted);
+  max-width: 520px;
+  margin-bottom: 25px;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--cyan);
+  color: #001015;
+  padding: 12px 20px;
+  border-radius: 7px;
+  font-weight: bold;
+  border: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: white;
+  transform: translateY(-3px);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid #43505f;
+  color: white;
+  margin-left: 8px;
+}
+
+.btn-outline:hover {
+  background: #17212b;
+  color: var(--cyan);
+}
+
+.hero-img {
+  width: 100%;
+  border-radius: 18px;
+  border: 1px solid #253543;
+  box-shadow: 0 0 35px #00e5ff12;
+}
+
+/* GENERAL SECTIONS */
+
+section.content {
+  padding: 65px 20px;
+}
+
+.section-inner {
+  max-width: 1150px;
+  margin: auto;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.section-heading h2 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.section-heading h2 span {
+  color: var(--cyan);
+}
+
+.section-heading p {
+  color: var(--muted);
+}
+
+/* SEARCH */
+
+.search-wrap {
+  max-width: 600px;
+  margin: 0 auto 30px;
+}
+
+.search-wrap input {
+  width: 100%;
+  padding: 14px 16px;
+  background: var(--card);
+  color: white;
+  border: 1px solid #2c3846;
+  border-radius: 9px;
+  outline: none;
+}
+
+.search-wrap input:focus {
+  border-color: var(--cyan);
+}
+
+#searchMessage {
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* CARDS */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid #25303d;
+  border-radius: 13px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--cyan);
+}
+
+.card img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.tag {
+  display: inline-block;
+  color: var(--cyan);
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.card-link {
+  color: var(--cyan);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.card-link:hover {
+  text-decoration: underline;
+}
+
+.empty-message {
+  text-align: center;
+  color: var(--muted);
+  margin-top: 20px;
+}
+
+/* ALTERNATING BACKGROUND */
+
+.alt {
+  background: #0d121a;
+}
+
+/* VIDEO */
+
+.video-box {
+  max-width: 850px;
+  margin: auto;
+  background: var(--card);
+  padding: 15px;
+  border: 1px solid #273442;
+  border-radius: 15px;
+}
+
+.video-box video {
+  display: block;
+  width: 100%;
+  max-height: 460px;
+  background: black;
+  border-radius: 9px;
+}
+
+.video-box p {
+  color: var(--muted);
+  padding: 15px 5px 5px;
+  font-size: 14px;
+}
+
+/* CODING */
+
+.code-example {
+  background: #05080c;
+  border: 1px solid #263441;
+  border-radius: 10px;
+  padding: 20px;
+  overflow-x: auto;
+  margin: 20px 0;
+}
+
+.code-example pre {
+  color: var(--cyan);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-family: monospace;
+}
+
+.copy-btn {
+  background: #192631;
+  border: 1px solid #354656;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+  margin-top: 12px;
+}
+
+.copy-btn:hover {
+  border-color: var(--cyan);
+}
+
+/* ABOUT */
+
+.about-box {
+  max-width: 750px;
+  margin: auto;
+  text-align: center;
+  background: var(--card);
+  border: 1px solid #25303d;
+  padding: 30px;
+  border-radius: 15px;
+}
+
+.about-box p {
+  color: var(--muted);
+  margin-bottom: 15px;
+}
+
+/* FOOTER */
+
+footer {
+  padding: 35px 20px;
+  text-align: center;
+  border-top: 1px solid #25303d;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+footer strong {
+  color: var(--cyan);
+}
+
+/* MOBILE */
+
+@media (max-width: 750px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 50px;
+  }
+
+  .hero-img {
+    max-height: 300px;
+    object-fit: cover;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    padding-top: 18px;
+    gap: 15px;
+  }
+
+  nav.open {
+    display: flex;
+  }
+
+  nav a {
+    font-size: 15px;
+  }
+
+  .section-heading h2 {
+    font-size: 27px;
+  }
+
+  .btn-outline {
+    margin: 12px 0 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<header>
+  <div class="navbar">
+
+    <a href="#home" class="logo">
+      MR <span>SHEDDY.</span>
+    </a>
+
+    <button class="menu-btn" id="menuBtn"
+      aria-expanded="false" aria-controls="navMenu">
+      ☰ Menu
+    </button>
+
+    <nav id="navMenu">
+      <a href="#home">Home</a>
+      <a href="#ai">AI Tools</a>
+      <a href="#articles">Articles</a>
+      <a href="#videos">Videos</a>
+      <a href="#coding">Learn Coding</a>
+      <a href="#about">About</a>
+    </nav>
+
+  </div>
+</header>
+
+<!-- HOME -->
+
+<main>
+
+<section class="hero" id="home">
+
+  <div>
+    <span class="badge">TECHNOLOGY • AI • CODING</span>
+
+    <h1>
+      Explore the <span>Digital</span> World.
+    </h1>
+
+    <p>
+      Welcome to MR SHEDDY. Discover useful AI tools,
+      explore technology, watch demonstrations and learn
+      how to build websites from scratch.
+    </p>
+
+    <a href="#ai" class="btn">Explore AI Tools ↗</a>
+
+    <a href="#coding" class="btn btn-outline">
+      Start Learning
+    </a>
+  </div>
+
+  <img
+    class="hero-img"
+    src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=900&q=85"
+    alt="Artificial intelligence and digital technology"
+  >
+
+</section>
+
+<!-- AI TOOLS -->
+
+<section class="content alt" id="ai">
+  <div class="section-inner">
+
+    <div class="section-heading">
+      <h2>Explore <span>AI Tools</span></h2>
+      <p>Discover tools that can help you create, learn and work.</p>
+    </div>
+
+    <div class="search-wrap">
+      <input
+        type="search"
+        id="siteSearch"
+        placeholder="Search AI tools, articles and coding..."
+        aria-label="Search website content"
+      >
+    </div>
+
+    <p id="searchMessage" aria-live="polite">
+      Explore the resources below.
+    </p>
+
+    <div class="grid searchable">
+
+      <article class="card" data-search="chatgpt ai writing assistant">
+        <img
+          src="https://images.unsplash.com/photo-1676299081847-824916de030a?auto=format&fit=crop&w=700&q=80"
+          alt="Digital artificial intelligence concept"
+          loading="lazy"
+        >
+
+        <div class="card-body">
+          <span class="tag">AI ASSISTANT</span>
+          <h3>ChatGPT</h3>
+          <p>Explore an AI assistant that can help explain concepts, brainstorm and write.</p>
+          <a class="card-link"
+             href="https://chatgpt.com/"
+             target="_blank" rel="noopener noreferrer">
+            Visit ChatGPT ↗
+          </a>
+        </div>
+      </article>
+
+      <article class="card" data-search="google gemini ai assistant">
+        <img
+          src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=700&q=80"
+          alt="Robot representing artificial intelligence"
+          loading="lazy"
+        >
+
+        <div class="card-body">
+          <span class="tag">AI ASSISTANT</span>
+          <h3>Google Gemini</h3>
+          <p>Explore Google's AI assistant for questions, ideas and everyday tasks.</p>
+          <a class="card-link"
+             href="https://gemini.google.com/"
+             target="_blank" rel="noopener noreferrer">
+            Visit Gemini ↗
+          </a>
+        </div>
+      </article>
+
+      <article class="card" data-search="canva design graphics creativity">
+        <img
+          src="https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=700&q=80"
+          alt="Creative digital design workspace"
+          loading="lazy"
+        >
+
+        <div class="card-body">
+          <span class="tag">DESIGN</span>
+          <h3>Canva</h3>
+          <p>Explore a design platform for graphics, presentations and social content.</p>
+          <a class="card-link"
+             href="https://www.canva.com/"
+             target="_blank" rel="noopener noreferrer">
+            Visit Canva ↗
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLES -->
+
+<section class="content" id="articles">
+  <div class="section-inner">
+
+    <div class="section-heading">
+      <h2>Latest <span>Tech Articles</span></h2>
+      <p>Simple introductions to the technology shaping our world.</p>
+    </div>
+
+    <div class="grid searchable">
+
+      <article class="card" data-search="artificial intelligence beginner guide">
+        <img
+          src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=700&q=80"
+          alt="Artificial intelligence illustration"
+          loading="lazy"
+        >
+
+        <div class="card-body">
+          <span class="tag">ARTIFICIAL INTELLIGENCE</span>
+          <h3>What Is AI?</h3>
+          <p>Learn what artificial intelligence means and how AI tools can help people.</p>
+          <a class="card-link" href="#about">Explore MR SHEDDY ↗</a>
+        </div>
+      </article>
+
+      <article class="card" data-search="web development how websites work">
+        <img
+          src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=700&q=80"
+          alt="Laptop displaying a coding workspace"
+          loading="lazy"
+        >
+
+        <div class="card-body">
+          <span class="tag">WEB DEVELOPMENT</span>
+          <h3>How Websites Work</h3>
+          <p>Discover how HTML, CSS and JavaScript work together to create websites.</p>
+          <a class="card-link" href="#coding">Explore Coding ↗</a>
+        </div>
+      </article>
+
+      <article class="card" data-search="internet digital technology learning">
+        <img
+          src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=700&q=80"
+          alt="Electronic components on a circuit board"
+          loading="lazy"
+        >
+
+        <div class="card-body">
+          <span class="tag">TECHNOLOGY</span>
+          <h3>Technology for Beginners</h3>
+          <p>Start exploring the devices and ideas behind our digital world.</p>
+          <a class="card-link" href="#coding">Start Learning ↗</a>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- VIDEO -->
+
+<section class="content alt" id="videos">
+  <div class="section-inner">
+
+    <div class="section-heading">
+      <h2>Watch & <span>Discover</span></h2>
+      <p>Watch a sample video directly on the website.</p>
+    </div>
+
+    <div class="video-box">
+
+      <video controls preload="metadata"
+        poster="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=80">
+
+        <source
+          src="https://www.w3schools.com/html/mov_bbb.mp4"
+          type="video/mp4">
+
+        Your browser does not support HTML video.
+      </video>
+
+      <p>
+        This is a sample demonstration video, not a technology
+        tutorial. Later, we can replace it with a video that
+        matches the subject of this website.
+      </p>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- CODING -->
+
+<section class="content" id="coding">
+  <div class="section-inner">
+
+    <div class="section-heading">
+      <h2>Learn <span>Web Development</span></h2>
+      <p>Start with the three main technologies of front-end development.</p>
+    </div>
+
+    <div class="grid">
+
+      <article class="card">
+        <div class="card-body">
+          <span class="tag">LESSON 01</span>
+          <h3>HTML</h3>
+          <p>Learn to create headings, paragraphs, links, images and page structure.</p>
+          <a class="card-link"
+             href="https://www.w3schools.com/html/"
+             target="_blank" rel="noopener noreferrer">
+            Learn HTML ↗
+          </a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-body">
+          <span class="tag">LESSON 02</span>
+          <h3>CSS</h3>
+          <p>Learn colours, layouts, spacing, animations and responsive designs.</p>
+          <a class="card-link"
+             href="https://www.w3schools.com/css/"
+             target="_blank" rel="noopener noreferrer">
+            Learn CSS ↗
+          </a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-body">
+          <span class="tag">LESSON 03</span>
+          <h3>JavaScript</h3>
+          <p>Learn how to make websites respond to clicks and user actions.</p>
+          <a class="card-link"
+             href="https://www.w3schools.com/js/"
+             target="_blank" rel="noopener noreferrer">
+            Learn JavaScript ↗
+          </a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="about-box" style="margin-top:30px;">
+      <h3>Try your first HTML example</h3>
+
+      <div class="code-example">
+        <pre id="sampleCode">&lt;h1&gt;Hello, world!&lt;/h1&gt;
+&lt;p&gt;I am learning web development.&lt;/p&gt;</pre>
+
+        <button class="copy-btn" id="copyBtn">
+          Copy Example
+        </button>
+
+        <p id="copyMessage" aria-live="polite"></p>
+      </div>
+
+      <a class="btn"
+         href="https://www.w3schools.com/html/tryit.asp?filename=tryhtml_default"
+         target="_blank" rel="noopener noreferrer">
+        Open Coding Editor ↗
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+
+<section class="content alt" id="about">
+  <div class="section-inner">
+
+    <div class="section-heading">
+      <h2>About <span>MR SHEDDY</span></h2>
+    </div>
+
+    <div class="about-box">
+      <h3>Think. Create. Build.</h3>
+
+      <p>
+        MR SHEDDY is a growing technology project focused on
+        artificial intelligence, digital creativity and web development.
+      </p>
+
+      <p>
+        The goal is to make technology easier to understand,
+        help people discover useful resources and document
+        the journey of learning to build digital experiences.
+      </p>
+
+      <a class="btn"
+         href="https://www.w3schools.com/"
+         target="_blank" rel="noopener noreferrer">
+        Keep Learning ↗
+      </a>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+  <p><strong>MR SHEDDY.</strong> — Think. Create. Build.</p>
+  <p>Made with passion and a love for technology.</p>
+  <p>&copy; <span id="year"></span> MR SHEDDY.</p>
+</footer>
+
+<script>
+// Mobile navigation
+const menuBtn = document.getElementById("menuBtn");
+const navMenu = document.getElementById("navMenu");
+
+menuBtn.addEventListener("click", function () {
+  navMenu.classList.toggle("open");
+
+  const isOpen = navMenu.classList.contains("open");
+
+  menuBtn.setAttribute("aria-expanded", isOpen);
+});
+
+// Close the mobile menu after selecting a section
+document.querySelectorAll("#navMenu a").forEach(function (link) {
+  link.addEventListener("click", function () {
+    navMenu.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", "false");
+  });
+});
+
+// Search the cards
+const searchInput = document.getElementById("siteSearch");
+const cards = document.querySelectorAll(".searchable .card");
+const searchMessage = document.getElementById("searchMessage");
+
+searchInput.addEventListener("input", function () {
+  const query = searchInput.value.toLowerCase().trim();
+  let visibleCount = 0;
+
+  cards.forEach(function (card) {
+    const searchableText =
+      (card.innerText + " " + card.dataset.search).toLowerCase();
+
+    const matches = searchableText.includes(query);
+
+    card.style.display = matches ? "" : "none";
+
+    if (matches) {
+      visibleCount++;
+    }
+  });
+
+  if (query === "") {
+    searchMessage.textContent = "Explore the resources below.";
+  } else {
+    searchMessage.textContent =
+      visibleCount + " matching card(s) found.";
+  }
+});
+
+// Copy the HTML example
+const copyBtn = document.getElementById("copyBtn");
+const sampleCode = document.getElementById("sampleCode");
+const copyMessage = document.getElementById("copyMessage");
+
+copyBtn.addEventListener("click", async function () {
+  const code = sampleCode.textContent
+    .replaceAll("&lt;", "<")
+    .replaceAll("&gt;", ">");
+
+  try {
+    await navigator.clipboard.writeText(code);
+    copyMessage.textContent = "Example copied!";
+  } catch (error) {
+    copyMessage.textContent =
+      "Automatic copying is unavailable here. Select and copy the example manually.";
+  }
+});
+
+// Current year
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+</script>
+
+</body>
+  </html>
