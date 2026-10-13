@@ -874,6 +874,23 @@ copyBtn.addEventListener("click", async function () {
 document.getElementById("year").textContent =
   new Date().getFullYear();
 </script>
+<div style="background:#111827;color:white;padding:20px;border-radius:15px;text-align:center;margin:20px 0;">
+  <h2 style="color:cyan;">🎮 MR SHEDDY QUIZ</h2>
+  <p>What has keys but cannot open locks?</p>
+  <input id="answer" placeholder="Type your answer">
+  <button onclick="checkAnswer()" style="padding:10px;background:cyan;border:0;border-radius:8px;">Submit</button>
+  <p id="result"></p>
+</div>
 
+<script>
+function checkAnswer() {
+  let answer = document.getElementById("answer").value.toLowerCase().trim();
+  if (answer === "piano") {
+    document.getElementById("result").innerText = "Correct! 🔥 You're smart!";
+  } else {
+    document.getElementById("result").innerText = "Try again, bro! 😎";
+  }
+}
+</script>
 </body>
   </html>
