@@ -419,7 +419,11 @@ footer strong {
   }
 
   nav.open {
-    display: flex;
+    display: flex !important;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    z-index: 999;
   }
 
   nav a {
